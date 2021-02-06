@@ -3,27 +3,34 @@ package main
 import "fmt"
 
 func main(){
-	// fmt.Println(
-	// `Animesh Dhar
-	// Student of Mba
-	// Bangabandhu Sheikh Mujibar Rahman Science And Technology University
-	// Graphic Designer
-	// Social Worker`)
+	// var name string
+	// var age int
+	// var result float32
+	// var isFound bool
 
-	// var name string = "shimul"
-	var name, city string = "shimul", "sarishabari"
-	
-	// var c rune = 'A'
-	// var age int = 10
-	// var result float32 = 50.95
+	// fmt.Println(name)
+	// fmt.Println(age)
+	// fmt.Println(result)
+	// fmt.Println(isFound)
 
-	// fmt.Println(name, city, c, age, result)
+	// var chr rune
+	// chr = 'F'
+	// fmt.Println(chr)
+	// fmt.Printf("%c", chr)
+
+	// fmt.Println(true && true)
+	// fmt.Println(true && false)
+	// fmt.Println(true || true)
+	// fmt.Println(true || false)
+	// fmt.Println(!true)
 
 
+	fmt.Println("Please enter your name and age:")
+	var name string
+	var age int
 
-	if (name == "shimul" && city == "jamalpur") {
-		fmt.Println("He is jamalpuira")
-	}else{
-		fmt.Println("He is not jamalpuira")
-	}
+	fmt.Scanf("%s %d", &name, &age)
+
+	fmt.Printf("Your name is %s and age is %d", name, age)
+
 }
