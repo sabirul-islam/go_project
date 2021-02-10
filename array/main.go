@@ -17,4 +17,6 @@ func main(){
 	fmt.Println(students)
 	fmt.Println(len(students))
 	fmt.Println(students[0])
+
+	fmt.Printf("%T", students)
 }
