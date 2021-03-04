@@ -23,6 +23,10 @@ func main() {
 	remoteAddr := conn.RemoteAddr().String()
 	fmt.Println(remoteAddr)
 
+	bs := make([]byte, 1024)
+	conn.Read(bs)
+	fmt.Println(string(bs))
+
 	conn.Write([]byte("welcome to our coding bootcamp"))
 
 	conn.Close()
