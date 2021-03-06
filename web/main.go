@@ -5,8 +5,10 @@ import (
 	"net/http"
 )
 
-
 func main() {
+	
+	http.Handle("/resources/", http.StripPrefix("/resources/", http.FileServer(http.Dir("img"))))
+	// http.Handle("/", http.FileServer(http.Dir("./img/")))
 	http.HandleFunc("/", home)
 	http.HandleFunc("/about", about)
 	http.HandleFunc("/contact", contact)
@@ -22,5 +24,7 @@ func about(w http.ResponseWriter, r *http.Request){
 }
 
 func contact(w http.ResponseWriter, r *http.Request){
-	fmt.Fprintf(w, `welcome to my contact page.`)
+	// fmt.Fprintf(w, `welcome to my contact page.`)
+	w.Header().Set("Content-Type", "text/html; charset=UTF-8")
+	fmt.Fprintf(w, "<img src=\"server.jpg\" />")
 }
