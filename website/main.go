@@ -10,6 +10,7 @@ func main() {
 	http.HandleFunc("/", home)
 	http.HandleFunc("/features", features)
 	http.HandleFunc("/docs", docs)
+	http.HandleFunc("/request", request)
 	http.Handle("/resources/", http.StripPrefix("/resources/", http.FileServer(http.Dir("assets"))))
 
 	http.ListenAndServe(":8888", nil)
@@ -47,4 +48,22 @@ func docs(w http.ResponseWriter, r *http.Request){
 		fmt.Println(err.Error())
 	}
 	ptmp.Execute(w, nil)
+}
+
+func request(w http.ResponseWriter, r *http.Request){
+	/*
+	// method-1
+	name := r.FormValue("name")
+	company := r.FormValue("company")
+	email := r.FormValue("email")
+	fmt.Println(name, company, email)
+	fmt.Fprintf(w, `received %s %s %s`, name, company, email)
+	*/
+
+	// method-2
+	r.ParseForm()
+	for key, val := range r.Form{
+		fmt.Println(key, val)
+	}
+	fmt.Fprintf(w, `ok`)
 }
